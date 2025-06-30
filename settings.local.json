@@ -53,7 +53,17 @@
       "bash:*",
       "puppeteer:*",
       "tidewave:*",
-      "context7:*"
+      "context7:*",
+      "mcp__tidewave__project_eval",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_select_option",
+      "mcp__tidewave__get_ecto_schemas",
+      "mcp__tidewave__get_source_location",
+      "mcp__tidewave__get_source_location",
+      "mcp__tidewave__execute_sql_query"
     ],
     "deny": []
   },
