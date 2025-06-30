@@ -42,9 +42,10 @@ Actions to perform:
      ```
    - Push the branch to origin
 8. Create pull request:
+   - Strip "Plan: " prefix from issue title if present
    - Use gh to create PR that references the issue:
      ```
-     gh pr create --title "Implement: [issue title]" \
+     gh pr create --title "Impl: [issue title without 'Plan: ' prefix]" \
                   --body "Implements the plan from #[number]
      
      ## Summary
