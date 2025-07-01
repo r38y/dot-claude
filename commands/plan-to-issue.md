@@ -60,11 +60,14 @@ Actions to perform:
    What the system will be able to do after implementation
    ```
 
-6. Create GitHub issue:
+6. Show the complete plan to the user for review
+7. Ask if the user wants to create a GitHub issue with this plan
+8. If user confirms, create GitHub issue:
    - Use `gh issue create` command with the plan as the body
    - Title should be "Plan: [Task Description]"
    - Add label "plan" if it exists
    - Return the issue URL to the user
+9. If user cancels, they still have the plan shown and can request changes
 
 Example usage:
 
