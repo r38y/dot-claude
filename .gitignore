@@ -2,3 +2,6 @@
 statsig/
 todos/
 projects/
+
+# Ignore local settings
+settings.local.json
