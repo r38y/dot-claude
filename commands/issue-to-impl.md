@@ -6,6 +6,11 @@ Required argument:
 
 - GitHub issue URL (e.g., https://github.com/owner/repo/issues/123)
 
+⚠️ CRITICAL: PR Description MUST include "Closes #[issue-number]"
+- Include in initial PR creation
+- ALWAYS include when updating PR description after squashing
+- This ensures the issue is automatically closed when PR is merged
+
 Actions to perform:
 
 1. Parse the GitHub issue URL to extract owner, repo, and issue number
@@ -43,6 +48,7 @@ Actions to perform:
    - Push the branch to origin
 8. Create pull request:
    - Strip "Plan: " prefix from issue title if present
+   - ⚠️ MUST include "Closes #[number]" in the body
    - Use gh to create PR that references the issue:
      ```
      gh pr create --title "Impl: [issue title without 'Plan: ' prefix]" \
@@ -54,6 +60,11 @@ Actions to perform:
      Closes #[number]"
      ```
    - Return the PR URL to the user
+   
+9. When updating PR (after squashing commits):
+   - ⚠️ ALWAYS keep "Closes #[number]" in the description
+   - Update title and body to reflect final changes
+   - Never remove the closes tag
 
 Example usage:
 
@@ -66,3 +77,4 @@ Notes:
 - The branch name will include the issue number for easy tracking
 - The PR will automatically link to and close the issue when merged
 - All implementation follows the specifications in the issue exactly
+- ⚠️ REMINDER: Always include "Closes #[number]" in PR descriptions (initial and updates)
