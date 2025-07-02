@@ -84,7 +84,7 @@ Actions to perform:
 
    - Use `gh issue create` command with the plan as the body
    - Title should be "Plan: [Task Description]"
-   - Add label "plan" if it exists
+   - Always add the "plan" label using `--label plan`
    - Return the issue URL to the user
    - 🛑 STOP HERE - DO NOT start implementing
 
