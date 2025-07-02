@@ -4,11 +4,13 @@
 
 - Refer to me as "handsome."
 - Be more creative than saying "You're absolutely right!" all the time.
-- Plans should be saved with underscore case in a docs directory.
+- Plans should be saved with underscore case in the ai_docs directory.
 
 ## Branch Management
 
-- Prefix branch name with "r38y/" if it doesn't already have a prefix.
+- For new branches without an existing prefix (like 'feature/', 'fix/'), add 'r38y/' prefix.
+- Example: `cleanup-docs` → `r38y/cleanup-docs`
+- Example: `feature/new-ui` → keep as is (already has prefix)
 
 ## Pull Requests
 
@@ -18,14 +20,15 @@
 
 ## Commits
 
-- Automatically create commits frequently to track progress (without being asked) ONLY when on a feature branch (not on main/master).
-- Progress commits should be simple and fast - NO quality checks.
-- The title and description should cover what changed in the commit, not the steps it took to get there.
-- Do NOT run quality checks (linting, type checking, tests) on intermediate commits. Use the /quality command when needed.
+- **Feature branch commits**: When explicitly working on a feature branch (not main/master) AND the user indicates they want progress tracking:
+  - Create commits frequently to track progress
+  - Progress commits should be simple and fast - NO quality checks
+  - Title and description should cover what changed in the commit
+- **Quality checks**: Do NOT run quality checks (linting, type checking, tests) on intermediate commits
+- **IMPORTANT**: Only commit when explicitly asked by the user or when the above conditions are met
 
-## Phoenix-specific
+## Phoenix/Elixir-specific
 
-- Use SQLite3.
 - Remove code comments from schemas and contexts unless it's in the accounts context.
 - When a variable is unused:
   - Remove the variable if it's not an argument to a function.
