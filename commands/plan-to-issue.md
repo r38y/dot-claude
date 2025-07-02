@@ -6,6 +6,15 @@ Required argument:
 
 - Task description (what you want to plan)
 
+⚠️ CRITICAL WORKFLOW - FOLLOW THESE STEPS EXACTLY:
+
+1. Generate the plan
+2. STOP and SHOW the plan to the user
+3. ASK "Would you like me to create a GitHub issue with this plan?"
+4. WAIT for user confirmation
+5. Only create issue if user says yes
+6. STOP after creating issue - DO NOT implement
+
 Actions to perform:
 
 1. Parse the task description to understand requirements
@@ -60,19 +69,38 @@ Actions to perform:
    What the system will be able to do after implementation
    ```
 
-6. Show the complete plan to the user for review
-7. Ask if the user wants to create a GitHub issue with this plan
-8. If user confirms, create GitHub issue:
+6. 🛑 CHECKPOINT: Show the complete plan to the user for review
+
+   - Present the full plan formatted as shown above
+   - DO NOT proceed to next step automatically
+
+7. 🛑 CHECKPOINT: Ask for confirmation
+
+   - Ask EXACTLY: "Would you like me to create a GitHub issue with this plan?"
+   - WAIT for user response
+   - DO NOT assume yes
+
+8. If user confirms (only if they explicitly say yes):
+
    - Use `gh issue create` command with the plan as the body
    - Title should be "Plan: [Task Description]"
    - Add label "plan" if it exists
    - Return the issue URL to the user
+   - 🛑 STOP HERE - DO NOT start implementing
+
 9. If user cancels, they still have the plan shown and can request changes
 
 Example usage:
 
 - `/plan-to-issue add user authentication with JWT tokens`
 - `/plan-to-issue refactor database connection pooling`
+
+⚠️ IMPORTANT REMINDERS:
+
+- This command ONLY creates a plan and issue - it does NOT implement
+- You MUST show the plan and get confirmation before creating the issue
+- After creating the issue, STOP - do not start coding
+- If user wants implementation, they will use a separate command
 
 Notes:
 
