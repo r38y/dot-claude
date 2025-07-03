@@ -21,11 +21,15 @@ Actions to perform:
 3. Parse the issue body to understand the implementation plan:
    - Extract the plan sections (Overview, Files to Change, Files to Create, Tests, etc.)
    - Use TodoWrite to create tasks based on the implementation steps
-4. Create a feature branch:
+4. Create a feature branch and update issue status:
    - Generate branch name from issue title (r38y/issue-[number]-[descriptive-name])
    - Create and checkout the branch:
      ```
      git checkout -b r38y/issue-[number]-[descriptive-name]
+     ```
+   - Add "in progress" label to the issue:
+     ```
+     gh issue edit [issue-number] --add-label "in progress"
      ```
 5. Implement the plan:
    - Work through each task in the todo list
@@ -46,7 +50,7 @@ Actions to perform:
      Closes #[number]"
      ```
    - Push the branch to origin
-8. Create pull request:
+8. Create pull request and update issue labels:
    - Strip "Plan: " prefix from issue title if present
    - ⚠️ MUST include "Closes #[number]" in the body
    - Use gh to create PR that references the issue:
@@ -58,6 +62,10 @@ Actions to perform:
      [Brief summary of implementation]
      
      Closes #[number]"
+     ```
+   - Update issue labels:
+     ```
+     gh issue edit [issue-number] --remove-label "in progress" --add-label "pr submitted"
      ```
    - Return the PR URL to the user
    
