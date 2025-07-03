@@ -43,11 +43,18 @@ Actions to perform:
    - Ensure all todos are completed
 7. Commit and push:
    - Stage all changes
-   - Create a commit with message referencing the issue:
+   - Create a commit with a descriptive message:
      ```
-     git commit -m "Implement plan from issue #[number]: [brief description]
-     
-     Closes #[number]"
+     git commit -m "$(cat <<'EOF'
+[Summary of the changes made]
+
+Closes #[number]
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
      ```
    - Push the branch to origin
 8. Create pull request and update issue labels:
