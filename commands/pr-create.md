@@ -19,33 +19,37 @@ Actions to perform:
 
 1. Follow shared/todo-management.md patterns for task tracking
 2. Follow shared/branch-management.md to verify on feature branch
-3. Delete any existing plan for this feature from ai_docs directory:
+3. Check if there's an existing PR for this branch to preserve issue relationships:
+   - Run `gh pr list --head $(git rev-parse --abbrev-ref HEAD) --json number,body`
+   - If PR exists, extract any "Closes #" references from the body
+4. Delete any existing plan for this feature from ai_docs directory:
    - Get current branch name: `current_branch=$(git rev-parse --abbrev-ref HEAD)`
    - Remove r38y/ prefix if present: `feature_name=${current_branch#r38y/}`
    - Delete plan if exists: `rm -f ai_docs/${feature_name}.md`
-4. Follow shared/quality-checks.md for pre-PR validation
-5. Run `git fetch origin main` to get latest main branch
-6. Review all commits since diverging from main using shared/git-operations.md:
+5. Follow shared/quality-checks.md for pre-PR validation
+6. Run `git fetch origin main` to get latest main branch
+7. Review all commits since diverging from main using shared/git-operations.md:
    - `git log main..HEAD --oneline`
    - `git diff main...HEAD`
    - Apply any additional squashing instructions provided by the user
    - If splitting instructions are provided, organize commits accordingly
-7. Follow shared/commit-organization.md for organizing commits:
+8. Follow shared/commit-organization.md for organizing commits:
    - Create a temporary branch: `git checkout -b temp-pr-create`
    - Reset to main: `git reset --soft $(git merge-base HEAD main)`
    - If additional splitting instructions provided:
      - Follow the user's instructions to organize commits
      - Create multiple commits as specified
      - Otherwise, create one commit for all non-Claude changes
-8. For each commit being created:
+9. For each commit being created:
    - Use descriptive commit messages that summarize the changes
-9. Force push to original branch: `git push origin HEAD:$(git rev-parse --abbrev-ref HEAD@{1}) --force-with-lease`
-10. Switch back to original branch: `git checkout -` and `git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)`
-11. Clean up temporary branch: `git branch -D temp-pr-create`
-12. If a GitHub issue URL was provided:
-    - Extract issue number from URL (e.g., from "https://github.com/owner/repo/issues/123" extract "123")
-    - Add "Closes #123" line to PR body
-13. Create PR following shared/pr-management.md patterns with HEREDOC for body
+10. Force push to original branch: `git push origin HEAD:$(git rev-parse --abbrev-ref HEAD@{1}) --force-with-lease`
+11. Switch back to original branch: `git checkout -` and `git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)`
+12. Clean up temporary branch: `git branch -D temp-pr-create`
+13. Determine which issue reference to include:
+    - If a GitHub issue URL was provided, extract issue number from URL
+    - If no URL provided but existing PR had "Closes #" reference, preserve it
+    - Add the appropriate "Closes #[number]" line to PR body
+14. Create PR following shared/pr-management.md patterns with HEREDOC for body
 
 Pull request format:
 
@@ -58,7 +62,7 @@ One sentence summary of what changed compared to main
 - Third key change
 - Additional changes as needed
 
-[If GitHub issue URL provided: Closes #123]
+[If GitHub issue URL provided OR existing PR had issue reference: Closes #123]
 
 🤖 Generated with [Claude Code](https://claude.ai/code)
 EOF
@@ -74,3 +78,5 @@ Important notes:
 - If additional squashing instructions are provided, follow them to organize commits accordingly
 - The optional argument allows flexible commit organization (e.g., "keep database migrations separate" or "split by feature area")
 - If a GitHub issue URL is provided, extract the issue number and add "Closes #<number>" to the PR body
+- ALWAYS preserve existing "Closes #" references from the original PR when creating a new one
+- This ensures issues are properly closed when the PR is merged
