@@ -8,8 +8,8 @@ Prerequisites:
 
 Actions to perform:
 
-1. Follow shared/todo-management.md patterns for task tracking
-2. Follow shared/quality-checks.md to:
+1. Follow @shared/todo-management.md patterns for task tracking
+2. Follow @shared/quality-checks.md to:
    - Identify project type and available commands
    - Determine quality check order
    - Run checks systematically

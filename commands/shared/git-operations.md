@@ -58,10 +58,6 @@ git commit -m "$(cat <<'EOF'
 Commit message here
 
 Additional details if needed
-
-🤖 Generated with [Claude Code](https://claude.ai/code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>
 EOF
 )"
 ```

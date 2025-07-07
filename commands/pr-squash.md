@@ -17,11 +17,8 @@ Actions to perform:
 3. Check for existing PR and preserve issue relationships:
    - Run `gh pr list --head $(git rev-parse --abbrev-ref HEAD) --json number,body`
    - If PR exists, extract any "Closes #" references from the body
-4. Delete any existing plan for this feature from ai_docs directory:
-   - Get current branch name: `current_branch=$(git rev-parse --abbrev-ref HEAD)`
-   - Remove r38y/ prefix if present: `feature_name=${current_branch#r38y/}`
-   - Delete plan if exists: `rm -f ai_docs/${feature_name}.md`
-5. Follow shared/quality-checks.md for pre-squash validation
+4. Delete any markdown files added to the ai_docs directory in this branch
+5. Follow @shared/quality-checks.md for pre-squash validation
 6. Fetch latest main: `git fetch origin main`
 7. Review all commits to be squashed:
    - `git log main..HEAD --oneline`
@@ -45,10 +42,6 @@ Commit format:
 Title describing all changes
 
 Optional details about the changes
-
-🤖 Generated with [Claude Code](https://claude.ai/code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 Important notes:

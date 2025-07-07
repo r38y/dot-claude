@@ -12,7 +12,6 @@ One sentence summary of what changed compared to main
 - Second key change
 - Third key change
 
-🤖 Generated with [Claude Code](https://claude.ai/code)
 EOF
 )"
 ```

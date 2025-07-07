@@ -50,9 +50,6 @@ Actions to perform:
 
 Closes #[number]
 
-🤖 Generated with [Claude Code](https://claude.ai/code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>
 EOF
 )"
      ```
@@ -64,10 +61,10 @@ EOF
      ```
      gh pr create --title "Impl: [issue title without 'Plan: ' prefix]" \
                   --body "Implements the plan from #[number]
-     
+
      ## Summary
      [Brief summary of implementation]
-     
+
      Closes #[number]"
      ```
    - Update issue labels:
@@ -75,7 +72,7 @@ EOF
      gh issue edit [issue-number] --remove-label "in progress" --add-label "pr submitted"
      ```
    - Return the PR URL to the user
-   
+
 9. When updating PR (after squashing commits):
    - ⚠️ ALWAYS keep "Closes #[number]" in the description
    - Update title and body to reflect final changes

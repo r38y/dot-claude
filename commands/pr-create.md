@@ -17,23 +17,20 @@ Prerequisites:
 
 Actions to perform:
 
-1. Follow shared/todo-management.md patterns for task tracking
-2. Follow shared/branch-management.md to verify on feature branch
+1. Follow @shared/todo-management.md patterns for task tracking
+2. Follow @shared/branch-management.md to verify on feature branch
 3. Check if there's an existing PR for this branch to preserve issue relationships:
    - Run `gh pr list --head $(git rev-parse --abbrev-ref HEAD) --json number,body`
    - If PR exists, extract any "Closes #" references from the body
-4. Delete any existing plan for this feature from ai_docs directory:
-   - Get current branch name: `current_branch=$(git rev-parse --abbrev-ref HEAD)`
-   - Remove r38y/ prefix if present: `feature_name=${current_branch#r38y/}`
-   - Delete plan if exists: `rm -f ai_docs/${feature_name}.md`
-5. Follow shared/quality-checks.md for pre-PR validation
+4. Delete any existing plan for this feature from ai_docs directory - it'll be a file added in this branch.
+5. Follow @shared/quality-checks.md for pre-PR validation
 6. Run `git fetch origin main` to get latest main branch
-7. Review all commits since diverging from main using shared/git-operations.md:
+7. Review all commits since diverging from main using @shared/git-operations.md:
    - `git log main..HEAD --oneline`
    - `git diff main...HEAD`
    - Apply any additional squashing instructions provided by the user
    - If splitting instructions are provided, organize commits accordingly
-8. Follow shared/commit-organization.md for organizing commits:
+8. Follow @shared/commit-organization.md for organizing commits:
    - Create a temporary branch: `git checkout -b temp-pr-create`
    - Reset to main: `git reset --soft $(git merge-base HEAD main)`
    - If additional splitting instructions provided:
@@ -64,7 +61,6 @@ One sentence summary of what changed compared to main
 
 [If GitHub issue URL provided OR existing PR had issue reference: Closes #123]
 
-🤖 Generated with [Claude Code](https://claude.ai/code)
 EOF
 )"
 ```
