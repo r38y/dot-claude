@@ -11,11 +11,12 @@ Create a pull request for the current branch.
 Optional: Provide a GitHub issue URL to link (adds "Closes #123")
 
 Prerequisites:
-- Must be on a feature branch (not main)
 - All changes should be committed
 
 Steps:
-1. Verify on feature branch
+1. Check current branch - if on main:
+   a. Create feature branch named r38y/[descriptive-name]
+   b. Switch to the new branch
 2. Check for existing PR to preserve issue references
 3. Delete any ai_docs plan files from this branch
 4. Run quality checks if available
