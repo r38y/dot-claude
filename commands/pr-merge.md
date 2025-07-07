@@ -1,4 +1,7 @@
-Merge an existing pull request after final preparations
+---
+name: pr-merge
+description: Merge an existing pull request after final preparations
+---
 
 Purpose: Prepare PR for merging and merge it into main branch
 

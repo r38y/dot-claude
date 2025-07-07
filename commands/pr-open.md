@@ -1,4 +1,7 @@
-Open the most recently mentioned pull request in the browser
+---
+name: pr-open
+description: Open the most recently mentioned pull request in the browser
+---
 
 Purpose: Quickly open a GitHub pull request URL in the default browser
 

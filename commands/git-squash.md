@@ -1,4 +1,10 @@
-Squash commits on current branch with optional splitting instructions
+---
+name: git-squash
+description: Squash commits on current branch with optional splitting instructions
+parameters:
+  - name: instructions
+    required: false
+---
 
 Usage: /git-squash [optional: additional squashing instructions]
 

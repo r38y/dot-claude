@@ -1,4 +1,7 @@
-Create a git commit with proper formatting
+---
+name: git-commit
+description: Create a git commit with proper formatting
+---
 
 Purpose: Stage changes and create a well-formatted commit following user preferences
 

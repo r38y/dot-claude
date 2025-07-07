@@ -1,4 +1,10 @@
-Generate a comprehensive implementation plan and save it as a GitHub issue
+---
+name: plan-to-issue
+description: Generate a comprehensive implementation plan and save it as a GitHub issue
+parameters:
+  - name: task_description
+    required: true
+---
 
 Purpose: Create detailed, actionable plans showing exactly what will be changed, saved as a GitHub issue for future implementation
 

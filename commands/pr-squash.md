@@ -1,4 +1,10 @@
-Squash multiple commits on current branch into one
+---
+name: pr-squash
+description: Squash multiple commits on current branch into one
+parameters:
+  - name: instructions
+    required: false
+---
 
 Usage: /pr-squash [optional: additional squashing instructions]
 

@@ -1,4 +1,10 @@
-Create a pull request for the current branch
+---
+name: pr-create
+description: Create a pull request for the current branch
+parameters:
+  - name: instructions_or_issue_url
+    required: false
+---
 
 Usage: /pr-create [optional: additional squashing instructions or GitHub issue URL]
 

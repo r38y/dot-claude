@@ -1,4 +1,7 @@
-Run quality checks for the current project
+---
+name: quality
+description: Run quality checks for the current project
+---
 
 Purpose: Execute project-specific linting, type checking, formatting, and tests
 

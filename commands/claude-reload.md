@@ -1,4 +1,7 @@
-Reload all Claude configuration files and discover new commands
+---
+name: claude-reload
+description: Reload all Claude configuration files and discover new commands
+---
 
 Purpose: Refresh Claude's understanding of user preferences and project-specific instructions
 

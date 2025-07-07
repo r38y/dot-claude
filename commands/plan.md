@@ -1,4 +1,10 @@
-Generate a comprehensive implementation plan for a development task
+---
+name: plan
+description: Generate a comprehensive implementation plan for a development task
+parameters:
+  - name: task_description
+    required: true
+---
 
 Purpose: Create detailed, actionable plans showing exactly what will be changed, then automatically set up a feature branch and start implementation
 

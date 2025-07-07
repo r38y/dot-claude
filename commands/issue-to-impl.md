@@ -1,4 +1,10 @@
-Implement a plan from a GitHub issue
+---
+name: issue-to-impl
+description: Implement a plan from a GitHub issue
+parameters:
+  - name: issue_url
+    required: true
+---
 
 Purpose: Read a GitHub issue containing an implementation plan, create a feature branch, implement the plan, and create a pull request
 
