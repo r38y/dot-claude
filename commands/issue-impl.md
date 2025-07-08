@@ -16,9 +16,10 @@ Steps:
 3. Create feature branch named r38y/issue-[number]-[description]
 4. Add "in progress" label to issue
 5. Implement the plan following specifications
-6. Run quality checks if available
-7. Commit with message including "Closes #[number]"
-8. Push branch and create PR
-9. Update issue labels to "pr submitted"
+6. Make progress commits as you work (without quality checks)
+7. Run quality checks (tests, lint, typecheck) and fix any issues until all pass
+8. Create final commit with message including "Closes #[number]"
+9. Push branch and create PR
+10. Update issue labels to "pr submitted"
 
 The PR must include "Closes #[number]" to auto-close the issue when merged.

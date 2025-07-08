@@ -28,11 +28,15 @@ If --issue flag is provided:
 3. Ask "Would you like me to create a GitHub issue with this plan?"
 4. Only create issue if user confirms
 5. Stop after creating issue (don't implement)
+6. No feature branch is created
 
 If no --issue flag:
 1. Generate and show the plan
 2. Create feature branch
 3. Save plan to ai_docs/
 4. Start implementation
+5. Make progress commits as you work (without quality checks)
+6. Run quality checks (tests, lint, typecheck) and fix any issues until all pass
+7. Create PR after all quality checks pass
 
 Plans focus on WHAT will change, with enough detail for implementation.
