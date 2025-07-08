@@ -56,7 +56,7 @@ Numbered steps showing:
 Workflow:
 1. Generate the plan
 2. Show it to user
-3. Ask "Would you like to: 1) Create a GitHub issue with this plan, or 2) Save to ai_docs/ and start implementing?"
+3. Ask "Would you like to: 1) Create a GitHub issue with this plan, or 2) Start implementing?"
 4. If user provides feedback instead of choosing:
    - Update the plan based on feedback
    - Show the updated plan again
@@ -68,7 +68,6 @@ Workflow:
    - No feature branch is created
 6. If user chooses to implement:
    - Create feature branch
-   - Save plan to ai_docs/
    - Start implementation
    - Make progress commits as you work (without quality checks)
    - Run quality checks (tests, lint, typecheck) and fix any issues until all pass
