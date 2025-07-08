@@ -18,13 +18,12 @@ Steps:
    a. Create feature branch named r38y/[descriptive-name]
    b. Switch to the new branch
 2. Check for existing PR to preserve issue references
-3. Delete any ai_docs plan files from this branch
-4. Run quality checks if available
-5. Squash commits into one clean commit
-6. Push to origin
-7. Create PR with descriptive title and body
-8. If issue URL provided, add "Closes #[number]"
-9. Monitor PR checks with `gh pr checks --watch`
+3. Run quality checks if available
+4. Squash commits into one clean commit
+5. Push to origin
+6. Create PR with descriptive title and body
+7. If issue URL provided, add "Closes #[number]"
+8. Monitor PR checks with `gh pr checks --watch`
 
 PR format focuses on WHAT changed, not HOW.
 Never include test plans.
