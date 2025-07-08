@@ -4,44 +4,74 @@ description: Generate a comprehensive implementation plan
 parameters:
   - name: task_description
     required: true
-  - name: create_issue
-    required: false
 ---
 
 Create a detailed plan for implementing a feature.
 
 Required: Task description
 
-Optional: --issue flag to create a GitHub issue
+The plan must be detailed enough for another Claude instance to execute without additional planning.
 
-The plan includes:
-- Overview of what will be accomplished
-- Files to modify with specific changes
-- Files to create with purpose
-- Tests to write with scenarios
-- Implementation steps
-- Expected outcome
+Required sections:
 
-If --issue flag is provided:
+## Overview
+- Clear description of the feature/fix
+- User-facing impact and benefits
+- Technical approach (1-2 sentences)
+
+## Files to Modify
+For each file:
+- Full file path
+- Current purpose/responsibility
+- Specific changes needed (what functions/classes to add/modify)
+- Dependencies or imports to add
+
+## Files to Create
+For each new file:
+- Full file path
+- Purpose and responsibility
+- Complete list of functions/classes/components to implement
+- Key interfaces and data structures
+- Integration points with existing code
+
+## Tests
+For each test file:
+- Full file path
+- Test scenarios with expected behavior
+- Edge cases to cover
+- Test data requirements
+
+## Implementation Order
+Numbered steps showing:
+1. Which files to create/modify first
+2. Dependencies between changes
+3. Where to run tests during implementation
+4. Specific commands to run (npm install, migrations, etc)
+
+## Validation Steps
+- Commands to run for testing
+- Expected output or behavior
+- How to verify the feature works correctly
+
+Workflow:
 1. Generate the plan
 2. Show it to user
-3. Ask "Would you like me to create a GitHub issue with this plan?"
-4. If user provides feedback instead of confirming:
+3. Ask "Would you like to: 1) Create a GitHub issue with this plan, or 2) Save to ai_docs/ and start implementing?"
+4. If user provides feedback instead of choosing:
    - Update the plan based on feedback
    - Show the updated plan again
-   - Ask again about creating the issue
-   - Repeat until user confirms or declines
-5. Only create issue if user confirms
-6. Stop after creating issue (don't implement)
-7. No feature branch is created
-
-If no --issue flag:
-1. Generate and show the plan
-2. Create feature branch
-3. Save plan to ai_docs/
-4. Start implementation
-5. Make progress commits as you work (without quality checks)
-6. Run quality checks (tests, lint, typecheck) and fix any issues until all pass
-7. Create PR after all quality checks pass
+   - Ask again about creating issue or implementing
+   - Repeat until user chooses an option or declines
+5. If user chooses GitHub issue:
+   - Create issue with the plan
+   - Stop (don't implement)
+   - No feature branch is created
+6. If user chooses to implement:
+   - Create feature branch
+   - Save plan to ai_docs/
+   - Start implementation
+   - Make progress commits as you work (without quality checks)
+   - Run quality checks (tests, lint, typecheck) and fix any issues until all pass
+   - Create PR after all quality checks pass
 
 Plans focus on WHAT will change, with enough detail for implementation.
