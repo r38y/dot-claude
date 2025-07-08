@@ -26,9 +26,14 @@ If --issue flag is provided:
 1. Generate the plan
 2. Show it to user
 3. Ask "Would you like me to create a GitHub issue with this plan?"
-4. Only create issue if user confirms
-5. Stop after creating issue (don't implement)
-6. No feature branch is created
+4. If user provides feedback instead of confirming:
+   - Update the plan based on feedback
+   - Show the updated plan again
+   - Ask again about creating the issue
+   - Repeat until user confirms or declines
+5. Only create issue if user confirms
+6. Stop after creating issue (don't implement)
+7. No feature branch is created
 
 If no --issue flag:
 1. Generate and show the plan
