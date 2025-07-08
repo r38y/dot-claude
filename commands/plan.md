@@ -10,7 +10,7 @@ Create a detailed plan for implementing a feature.
 
 Required: Task description
 
-The plan must be detailed enough to execute without additional planning.
+The plan must be detailed enough for Claude Code or another AI agent to execute without additional planning.
 
 Required sections:
 
