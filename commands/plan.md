@@ -15,19 +15,24 @@ The plan must be detailed enough for Claude Code or another AI agent to execute 
 Required sections:
 
 ## Overview
+
 - Clear description of the feature/fix
 - User-facing impact and benefits
 - Technical approach (1-2 sentences)
 
 ## Files to Modify
+
 For each file:
+
 - Full file path
 - Current purpose/responsibility
 - Specific changes needed (what functions/classes to add/modify)
 - Dependencies or imports to add
 
 ## Files to Create
+
 For each new file:
+
 - Full file path
 - Purpose and responsibility
 - Complete list of functions/classes/components to implement
@@ -35,25 +40,31 @@ For each new file:
 - Integration points with existing code
 
 ## Tests
+
 For each test file:
+
 - Full file path
 - Test scenarios with expected behavior
 - Edge cases to cover
 - Test data requirements
 
 ## Implementation Order
+
 Numbered steps showing:
+
 1. Which files to create/modify first
 2. Dependencies between changes
 3. Where to run tests during implementation
 4. Specific commands to run (npm install, migrations, etc)
 
 ## Validation Steps
+
 - Commands to run for testing
 - Expected output or behavior
 - How to verify the feature works correctly
 
 Workflow:
+
 1. Generate the plan
 2. Show it to user
 3. Ask "Would you like to: 1) Create a GitHub issue with this plan, or 2) Start implementing?"

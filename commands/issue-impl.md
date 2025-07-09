@@ -11,6 +11,7 @@ Read a GitHub issue and implement the plan it contains.
 Required: GitHub issue URL
 
 Steps:
+
 1. Parse issue URL and read content with `gh issue view`
 2. Extract implementation plan from issue body
 3. Create feature branch named r38y/issue-[number]-[description]

@@ -11,12 +11,12 @@ Create a pull request for the current branch.
 Optional: Provide a GitHub issue URL to link (adds "Closes #123")
 
 Prerequisites:
+
 - All changes should be committed
 
 Steps:
-1. Check current branch - if on main:
-   a. Create feature branch named r38y/[descriptive-name]
-   b. Switch to the new branch
+
+1. Check current branch - if on main: a. Create feature branch named r38y/[descriptive-name] b. Switch to the new branch
 2. Check for existing PR to preserve issue references
 3. Run quality checks if available
 4. Squash commits into one clean commit
@@ -25,5 +25,4 @@ Steps:
 7. If issue URL provided, add "Closes #[number]"
 8. Monitor PR checks with `gh pr checks --watch`
 
-PR format focuses on WHAT changed, not HOW.
-Never include test plans.
+PR format focuses on WHAT changed, not HOW. Never include test plans.
