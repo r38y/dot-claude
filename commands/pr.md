@@ -25,4 +25,23 @@ Steps:
 7. If issue URL provided, add "Closes #[number]"
 8. Monitor PR checks with `gh pr checks --watch`
 
-PR format focuses on WHAT changed, not HOW. Never include test plans.
+PR Guidelines:
+
+- Use maximum 5 bullet points in the summary
+- Each bullet should be one line
+- Focus on WHAT changed, not HOW
+- Never include test plans
+- Be concise and high-level
+
+Example PR body:
+
+```
+## Summary
+- Add user authentication with JWT tokens
+- Implement login/logout endpoints
+- Add auth middleware for protected routes
+- Create login UI components
+- Update user model for token storage
+
+Closes #123
+```

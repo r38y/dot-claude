@@ -16,5 +16,18 @@ Steps:
 3. Stage all files with `git add -A`
 4. Create commit with descriptive message
 5. Message should describe WHAT changed
+6. Use maximum 5 bullet points for the commit body
+7. Each bullet should be concise (one line)
+8. Focus on changes, not implementation details
 
-The commit message focuses on the changes made, not implementation details.
+Example format:
+
+```
+Add user authentication feature
+
+- Add login/logout endpoints
+- Create JWT token handling
+- Add auth middleware
+- Update user model with tokens
+- Add login form component
+```

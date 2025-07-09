@@ -23,4 +23,24 @@ Steps:
 9. Push branch and create PR
 10. Update issue labels to "pr submitted"
 
-The PR must include "Closes #[number]" to auto-close the issue when merged.
+Commit & PR Guidelines:
+
+- Use maximum 5 bullet points
+- Keep each point to one line
+- Focus on WHAT was implemented
+- Match the issue's requirements
+- Include "Closes #[number]" to auto-close the issue
+
+Example commit message:
+
+```
+Implement dark mode toggle
+
+- Add theme context provider
+- Create toggle component in settings
+- Update styles for dark theme
+- Store preference in localStorage
+- Apply theme on app initialization
+
+Closes #42
+```

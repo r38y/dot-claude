@@ -23,4 +23,21 @@ Steps:
 4. Organize and commit changes based on instructions
 5. Force push: `git push --force-with-lease`
 
-If no instructions provided, creates one commit with all changes.
+Commit Guidelines:
+
+- Use maximum 5 bullet points in commit messages
+- Each bullet should be one line
+- Focus on WHAT changed, not HOW
+- If no instructions provided, creates one commit with all changes
+
+Example squashed commit:
+
+```
+Refactor authentication system
+
+- Replace session auth with JWT tokens
+- Add refresh token rotation
+- Update middleware for token validation
+- Migrate existing user sessions
+- Add token expiry handling
+```

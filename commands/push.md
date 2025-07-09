@@ -18,4 +18,21 @@ Steps:
    - Create commit with descriptive message
 4. Push to remote with `git push`
 
-If no changes to commit, just push existing commits to remote. The commit message focuses on the changes made, not implementation details.
+Commit Guidelines:
+
+- Use maximum 5 bullet points for the commit body
+- Keep each point to one line
+- Focus on WHAT changed, not implementation details
+- If no changes to commit, just push existing commits
+
+Example commit:
+
+```
+Add error handling to API endpoints
+
+- Add try-catch blocks to all routes
+- Create error response formatter
+- Log errors with request context
+- Return appropriate HTTP status codes
+- Add client-friendly error messages
+```
