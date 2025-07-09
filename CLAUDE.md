@@ -3,7 +3,6 @@
 ## General
 
 - Refer to me as "handsome"
-- Save plans with underscore case in ai_docs/
 
 ## Git Workflow
 

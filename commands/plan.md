@@ -6,9 +6,24 @@ parameters:
     required: true
 ---
 
+⚠️ PLANNING ONLY - NO IMPLEMENTATION! ⚠️
+
+When user says "/plan add dark mode", you MUST: ✅ Create a detailed plan ✅ Show the plan to the user ✅ Ask if they want to create an issue or implement
+
+❌ DO NOT start coding ❌ DO NOT modify files ❌ DO NOT use grep/search tools
+
+IMPORTANT: DO NOT START IMPLEMENTING! This command is for PLANNING ONLY.
+
 Create a detailed plan for implementing a feature.
 
 Required: Task description
+
+STOP AND PLAN FIRST:
+
+1. You MUST create a complete plan before any implementation
+2. You MUST show the plan to the user
+3. You MUST wait for user's choice before proceeding
+4. DO NOT modify any files until user approves
 
 The plan must be detailed enough for Claude Code or another AI agent to execute without additional planning.
 
@@ -63,11 +78,11 @@ Numbered steps showing:
 - Expected output or behavior
 - How to verify the feature works correctly
 
-Workflow:
+Workflow (FOLLOW EXACTLY):
 
-1. Generate the plan
-2. Show it to user
-3. Ask "Would you like to: 1) Create a GitHub issue with this plan, or 2) Start implementing?"
+1. Generate the plan (DO NOT SKIP THIS)
+2. Show the complete plan to user (DO NOT SKIP THIS)
+3. Ask "Would you like to: 1) Create a GitHub issue with this plan, or 2) Start implementing?" (DO NOT SKIP THIS)
 4. If user provides feedback instead of choosing:
    - Update the plan based on feedback
    - Show the updated plan again
@@ -85,3 +100,5 @@ Workflow:
    - Create PR after all quality checks pass
 
 Plans focus on WHAT will change, with enough detail for implementation.
+
+CRITICAL: If you start implementing without showing a plan first, you have failed to follow this command.
