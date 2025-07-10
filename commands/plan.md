@@ -96,7 +96,8 @@ Workflow (FOLLOW EXACTLY):
    - Create feature branch
    - Start implementation
    - Make progress commits as you work (without quality checks)
-   - Run quality checks (tests, lint, typecheck) and fix any issues until all pass
+   - IMPORTANT: Run quality checks (tests, lint, typecheck) in a subagent to improve performance
+   - Fix any issues until all pass within the subagent
    - Create PR after all quality checks pass
 
 Plans focus on WHAT will change, with enough detail for implementation.

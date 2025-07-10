@@ -18,10 +18,11 @@ Steps:
 4. Add "in progress" label to issue
 5. Implement the plan following specifications
 6. Make progress commits as you work (without quality checks)
-7. Run quality checks (tests, lint, typecheck) and fix any issues until all pass
-8. Create final commit with message including "Closes #[number]"
-9. Push branch and create PR
-10. Update issue labels to "pr submitted"
+7. IMPORTANT: Run quality checks (tests, lint, typecheck) in a subagent to improve performance
+8. Fix any issues until all pass within the subagent
+9. Create final commit with message including "Closes #[number]"
+10. Push branch and create PR
+11. Update issue labels to "pr submitted"
 
 Commit & PR Guidelines:
 
