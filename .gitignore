@@ -5,3 +5,6 @@ projects/
 
 # Ignore local settings
 settings.local.json
+
+# Ignore shell snapshots
+shell-snapshots/
