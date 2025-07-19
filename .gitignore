@@ -2,6 +2,7 @@
 statsig/
 todos/
 projects/
+shell-snapshots/
 
 # Ignore local settings
 settings.local.json
