@@ -20,7 +20,7 @@ Steps:
 6. Make progress commits as you work (without quality checks)
 7. IMPORTANT: Run quality checks (tests, lint, typecheck) in a subagent to improve performance
 8. Fix any issues until all pass within the subagent
-9. Create final commit with message including "Closes #[number]"
+9. Create final commit with message MUST include "Closes #[number]" - DO NOT FORGET THIS
 10. Push branch and create PR
 11. Update issue labels to "pr submitted"
 
@@ -30,7 +30,8 @@ Commit & PR Guidelines:
 - Keep each point to one line
 - Focus on WHAT was implemented
 - Match the issue's requirements
-- Include "Closes #[number]" to auto-close the issue
+- MANDATORY: Include "Closes #[number]" to auto-close the issue - NEVER FORGET THIS
+- NEVER include Claude attribution or signatures - EXCLUDE ALL ATTRIBUTION
 
 Example commit message:
 

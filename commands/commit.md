@@ -19,6 +19,7 @@ Steps:
 6. Use maximum 5 bullet points for the commit body
 7. Each bullet should be concise (one line)
 8. Focus on changes, not implementation details
+9. NEVER include Claude attribution or signatures - EXCLUDE ALL ATTRIBUTION
 
 Example format:
 
