@@ -14,7 +14,7 @@ When user says "/plan add dark mode", you MUST: ✅ Create a detailed plan ✅ S
 
 IMPORTANT: DO NOT START IMPLEMENTING! This command is for PLANNING ONLY.
 
-Create a detailed plan for implementing a feature.
+Create a detailed plan for implementing a feature. Ultrathink about it.
 
 Required: Task description
 

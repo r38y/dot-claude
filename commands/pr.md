@@ -32,6 +32,7 @@ PR Guidelines:
 - Focus on WHAT changed, not HOW
 - Never include test plans
 - Be concise and high-level
+- NEVER include Claude attribution or signatures - EXCLUDE ALL ATTRIBUTION
 
 Example PR body:
 
