@@ -9,7 +9,7 @@ Steps:
 
 1. Identify project type and available commands
 2. Check for quality commands in package.json, Makefile, etc.
-3. Run checks in order: lint → typecheck → tests
+3. IMPORTANT: For maximum efficiency run independent quality checks (tests, lint, typecheck) simultaneously in a subagent to improve performance
 4. Fix any issues found
 5. Re-run ALL checks after fixes
 6. Repeat until all pass

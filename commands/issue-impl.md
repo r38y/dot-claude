@@ -18,7 +18,7 @@ Steps:
 4. Add "in progress" label to issue
 5. Implement the plan following specifications
 6. Make progress commits as you work (without quality checks)
-7. IMPORTANT: Run quality checks (tests, lint, typecheck) in a subagent to improve performance
+7. IMPORTANT: For maximum efficiency run independent quality checks (tests, lint, typecheck) simultaneously in a subagent to improve performance
 8. Fix any issues until all pass within the subagent
 9. Create final commit with message MUST include "Closes #[number]" - DO NOT FORGET THIS
 10. Push branch and create PR
@@ -31,7 +31,7 @@ Commit & PR Guidelines:
 - Focus on WHAT was implemented
 - Match the issue's requirements
 - MANDATORY: Include "Closes #[number]" to auto-close the issue - NEVER FORGET THIS
-- NEVER include Claude attribution or signatures - EXCLUDE ALL ATTRIBUTION
+- NEVER include AI code assistant (Claude, OpenCode, OpenAI, etc) attribution or signatures - EXCLUDE ALL ATTRIBUTION
 
 Example commit message:
 

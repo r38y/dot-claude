@@ -18,7 +18,7 @@ Steps:
 
 1. Check current branch - if on main: a. Create feature branch named r38y/[descriptive-name] b. Switch to the new branch
 2. Check for existing PR to preserve issue references
-3. Run quality checks if available
+3. IMPORTANT: For maximum efficiency run independent quality checks (tests, lint, typecheck) simultaneously in a subagent to improve performance
 4. Squash commits into one clean commit
 5. Push to origin
 6. Create PR with descriptive title and body
@@ -32,7 +32,7 @@ PR Guidelines:
 - Focus on WHAT changed, not HOW
 - Never include test plans
 - Be concise and high-level
-- NEVER include Claude attribution or signatures - EXCLUDE ALL ATTRIBUTION
+- NEVER include AI code assistant (Claude, OpenCode, OpenAI, etc) attribution or signatures - EXCLUDE ALL ATTRIBUTION
 
 Example PR body:
 

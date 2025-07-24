@@ -29,7 +29,7 @@ Commit Guidelines:
 - Each bullet should be one line
 - Focus on WHAT changed, not HOW
 - If no instructions provided, creates one commit with all changes
-- NEVER include Claude attribution or signatures - EXCLUDE ALL ATTRIBUTION
+- NEVER include AI code assistant (Claude, OpenCode, OpenAI, etc) attribution or signatures - EXCLUDE ALL ATTRIBUTION
 
 Example squashed commit:
 
