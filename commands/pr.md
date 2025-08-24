@@ -37,7 +37,6 @@ PR Guidelines:
 Example PR body:
 
 ```
-## Summary
 - Add user authentication with JWT tokens
 - Implement login/logout endpoints
 - Add auth middleware for protected routes
