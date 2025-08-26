@@ -23,7 +23,6 @@ Steps:
 5. Push to origin
 6. Create PR with descriptive title and body
 7. If issue URL provided, add "Closes #[number]"
-8. Monitor PR checks with `gh pr checks --watch`
 
 PR Guidelines:
 
