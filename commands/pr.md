@@ -18,7 +18,7 @@ Steps:
 
 1. Check current branch - if on main: a. Create feature branch named r38y/[descriptive-name] b. Switch to the new branch
 2. Check for existing PR to preserve issue references
-3. IMPORTANT: For maximum efficiency run independent quality checks (tests, lint, typecheck) simultaneously in a subagent to improve performance
+3. IMPORTANT: For maximum efficiency run independent quality checks (tests, lint, typecheck, format) simultaneously in a subagent to improve performance
 4. Squash commits into one clean commit
 5. Push to origin
 6. Create PR with descriptive title and body
