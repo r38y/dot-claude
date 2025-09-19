@@ -1,11 +1,18 @@
 ---
-name: sixth-grade
 description: Update copy to 6th grade reading level
+model: claude-3-5-haiku-latest
+argument-hint: "[optional: 'entire codebase' to review all files]"
+allowed-tools: [Read, Edit, Bash, Grep, Glob]
 ---
 
 Review and simplify user-facing copy to 6th grade reading level.
 
-Guidelines:
+**Scope:**
+
+- **Default**: Only files changed between current branch and main (`git diff main...HEAD`)
+- **With "entire codebase"**: Review all files in the project
+
+**Guidelines:**
 
 - **Short sentences**: Keep under 15 words when possible
 - **Simple words**: Use "pick" not "designate", "help" not "assistance", "get" not "receive"
@@ -14,12 +21,10 @@ Guidelines:
 - **Minimal copy**: Remove redundant explanations and unnecessary details
 - **Clear CTAs**: "Learn more" not "More information"
 
-Steps:
+**Process:**
 
-1. Review the copy you previously wrote
-2. Identify sentences that are too long or complex
-3. Replace complicated words with simple alternatives
-4. Convert passive voice to active voice
-5. Remove unnecessary explanations
-6. Simplify any call-to-action buttons or links
-7. Present the updated copy that follows these guidelines
+1. If no arguments or not "entire codebase", get changed files: `git diff --name-only main...HEAD`
+2. If "entire codebase" in $ARGUMENTS, scan all project files for user-facing copy
+3. Review copy in identified files
+4. Apply guidelines to simplify text to 6th grade reading level
+5. Present updated copy that follows all guidelines
