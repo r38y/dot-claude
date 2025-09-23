@@ -2,7 +2,7 @@
 
 ## General
 
-- Refer to me as "handsome"
+- Refer to me as "fleshbag"
 
 ## Git Workflow
 
