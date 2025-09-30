@@ -1,6 +1,18 @@
 #!/bin/bash
 INPUT=$(cat)
 
+# "PreToolUse": [
+#   {
+#     "matcher": "Bash",
+#     "hooks": [
+#       {
+#         "type": "command",
+#         "command": "/Users/r38y/.claude/hooks/prevent-main-commits.sh"
+#       }
+#     ]
+#   }
+# ],
+
 # Check if trying to run git commit
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // ""')
 if echo "$COMMAND" | grep -q "git commit"; then
