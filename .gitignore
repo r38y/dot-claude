@@ -3,9 +3,11 @@ statsig/
 todos/
 projects/
 shell-snapshots/
+file-history/
 
 # Ignore local settings
 settings.local.json
+history.jsonl
 
 # Ignore shell snapshots
 shell-snapshots/
