@@ -1,6 +1,6 @@
 ---
 description: Update copy to 6th grade reading level
-model: claude-3-5-haiku-latest
+model: claude-sonnet-4-5-20250929
 argument-hint: "[optional: 'entire codebase' to review all files]"
 allowed-tools: [Read, Edit, Bash, Grep, Glob]
 ---
