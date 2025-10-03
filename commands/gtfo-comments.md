@@ -23,6 +23,11 @@ Compare current branch to main and remove unnecessary code comments while preser
 
 **Process:**
 
-1. Get changed files: `git diff --name-only main...HEAD`
-2. For each file: analyze comments and remove unnecessary ones
-3. Apply changes and report summary
+1. Check current branch with `git branch --show-current`
+2. Prompt user to choose scope:
+   - Option 1: Comments in unstaged changes (`git diff --name-only`)
+   - Option 2: All changes compared to main branch (`git diff --name-only main...HEAD`) - only if not on main branch
+   - Option 3: Specific area of the code (prompt for directory/file pattern)
+3. Get files based on selected scope
+4. For each file: analyze comments and remove unnecessary ones
+5. Apply changes and report summary
