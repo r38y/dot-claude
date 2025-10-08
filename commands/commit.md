@@ -28,11 +28,24 @@ Stage changes and create a commit on the current feature branch.
 - Each bullet should be concise (one line)
 - Focus on changes, not implementation details
 
-**Example commit:**
+**Example GOOD commit:**
 
 ```
 Add user authentication feature
 
+- Add login/logout endpoints
+- Create JWT token handling
+- Add auth middleware
+- Update user model with tokens
+- Add login form component
+```
+
+**Example BAD commit:**
+
+```
+feat: Add user authentication feature
+
+## Summary
 - Add login/logout endpoints
 - Create JWT token handling
 - Add auth middleware

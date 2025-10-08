@@ -11,3 +11,5 @@ history.jsonl
 
 # Ignore shell snapshots
 shell-snapshots/
+
+debug
