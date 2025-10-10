@@ -12,6 +12,17 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "hooks/lint-changed-files.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
