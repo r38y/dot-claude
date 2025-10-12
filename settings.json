@@ -19,7 +19,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hooks/lint-changed-files.sh"
+            "command": ".claude/hooks/lint-changed-files.sh"
           }
         ]
       }
