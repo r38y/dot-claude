@@ -13,3 +13,6 @@ history.jsonl
 shell-snapshots/
 
 debug
+
+# Node
+node_modules/
