@@ -1,6 +1,7 @@
 ---
 name: issue-impl
 description: Implement a plan from a GitHub issue
+model: claude-sonnet-4-5-20250929
 parameters:
   - name: issue_url
     required: true

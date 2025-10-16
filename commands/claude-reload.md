@@ -1,6 +1,7 @@
 ---
 name: claude-reload
 description: Reload all Claude configuration files and discover new commands
+model: claude-haiku-4-5-20251001
 ---
 
 Purpose: Refresh Claude's understanding of user preferences and project-specific instructions

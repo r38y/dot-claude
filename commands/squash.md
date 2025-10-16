@@ -1,6 +1,6 @@
 ---
 description: Squash commits on current branch
-model: claude-sonnet-4-5-20250929
+model: claude-haiku-4-5-20251001
 argument-hint: '[optional instructions for organizing commits]'
 allowed-tools: [Bash, Read, Edit]
 ---

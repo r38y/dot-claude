@@ -1,6 +1,7 @@
 ---
 name: plan
 description: Generate a comprehensive implementation plan
+model: claude-opus-4-1-20250805
 parameters:
   - name: task_description
     required: true

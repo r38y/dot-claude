@@ -1,6 +1,6 @@
 ---
 description: Remove code comments from files, preserving test clarification comments
-model: claude-sonnet-4-5-20250929
+model: claude-haiku-4-5-20251001
 allowed-tools: [Bash, Read, Edit, Grep, Glob]
 ---
 

@@ -1,6 +1,6 @@
 ---
 description: Create a git commit
-model: claude-sonnet-4-5-20250929
+model: claude-haiku-4-5-20251001
 argument-hint: "[optional: 'don't create a branch' to stay on current branch]"
 allowed-tools: [Bash, Read, Edit]
 ---
