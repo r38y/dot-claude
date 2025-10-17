@@ -1,6 +1,6 @@
 ---
 description: Create or update a pull request
-model: claude-haiku-4-5-20251001
+model: claude-sonnet-4-5-20250929
 argument-hint: '[optional GitHub issue URL to link]'
 allowed-tools: [Bash, Task]
 ---

@@ -1,6 +1,6 @@
 ---
 description: Create a git commit and push to remote
-model: claude-haiku-4-5-20251001
+model: claude-sonnet-4-5-20250929
 allowed-tools: [Bash, Read, Edit]
 ---
 
