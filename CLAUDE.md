@@ -4,15 +4,12 @@
 
 - Refer to me as "fleshbag"
 
+## Coding Style
+
+- No defensive programming - don't add extra nil checks or error handling unless explicitly needed
+- No backwards compatibility code - don't preemptively make things work with old data or APIs
+- No preemptive fallbacks
+
 ## Git Workflow
 
 - Add 'r38y/' prefix to new branches without existing prefixes
-- Never include test plans in PR descriptions
-- Only commit when explicitly asked
-- Skip quality checks on intermediate commits
-- Don't include Claude signature in commit messages
-
-## Phoenix/Elixir
-
-- Remove schema/context comments (except accounts context)
-- Prefix unused function arguments with underscore
