@@ -18,12 +18,8 @@ Stage changes and create a commit on the current feature branch.
    - If on main without explicit permission: ALWAYS create feature branch named r38y/[descriptive-name] and switch to it
    - If user says "don't create a branch": stay on current branch (even if main)
 2. Review changes with `git status` and `git diff`
-3. Run formatters before staging:
-   - If `mix.exs` exists: run `mix format`
-   - If `package.json` exists with prettier: run `prettier --write .`
-   - Run formatters even if files are already staged
-4. Stage all files with `git add -A`
-5. Create commit with descriptive message
+3. Stage all files with `git add -A`
+4. Create commit with descriptive message
 
 **Commit Guidelines:**
 
