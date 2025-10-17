@@ -35,7 +35,7 @@ Create a pull request for the current branch.
 - Never include test plans
 - Be concise and high-level
 
-**Example PR body:**
+**Example GOOD PR body:**
 
 ```
 - Add user authentication with JWT tokens
@@ -45,4 +45,16 @@ Create a pull request for the current branch.
 - Update user model for token storage
 
 Closes #123
+```
+
+**Example BAD PR body:**
+
+```
+## Summary
+
+- First added some column
+- Then reverted adding some column
+- Resulting in no net change with that column
+
+Some AI credit line
 ```
