@@ -14,20 +14,26 @@ Compare current branch to main and remove unnecessary code comments while preser
 - Header comments and copyright notices
 - Inline comments that restate what code does
 - Documentation comments for internal functions
+- @moduledoc blocks from internal modules (not tests or test helpers)
+- @doc blocks from internal modules (not tests or test helpers)
 
 **What gets preserved:**
 
 - Test comments explaining non-obvious data setup
 - Test comments clarifying purpose of specific test data values
 - Comments required for functionality (magic comments, compiler directives)
+- @moduledoc and @doc blocks in test modules and test helper modules
+- All comments in router modules
 
 **Process:**
 
 1. Check current branch with `git branch --show-current`
-2. Prompt user to choose scope:
-   - Option 1: Comments in unstaged changes (`git diff --name-only`)
-   - Option 2: All changes compared to main branch (`git diff --name-only main...HEAD`) - only if not on main branch
-   - Option 3: Specific area of the code (prompt for directory/file pattern)
-3. Get files based on selected scope
+2. Determine scope:
+   - Default: All changes compared to main branch (`git diff --name-only main...HEAD`)
+   - If optional instructions provided, use those to determine scope:
+     - "unstaged files" → `git diff --name-only`
+     - "only the notifications context" → files matching that pattern/directory
+     - Other specific areas → interpret and apply appropriate file pattern
+3. Get files based on determined scope
 4. For each file: analyze comments and remove unnecessary ones
 5. Apply changes and report summary
