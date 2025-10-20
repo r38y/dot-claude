@@ -2,7 +2,7 @@
 description: Create or update a pull request
 model: claude-sonnet-4-5-20250929
 argument-hint: '[optional GitHub issue URL to link]'
-allowed-tools: [Bash, Task]
+allowed-tools: [Bash, Task, SlashCommand]
 ---
 
 Create a pull request for the current branch.
@@ -21,11 +21,11 @@ Create a pull request for the current branch.
    - `git checkout -b r38y/[descriptive-name]`
 2. Check for existing PR: `gh pr view --json body` to preserve issue references
 3. Run quality checks (tests, lint, typecheck, format) simultaneously using Task agent for efficiency
-4. Squash commits: `git reset --soft $(git merge-base HEAD main)`
-5. Create squashed commit: `git commit -m "title\n\n- bullet 1\n- bullet 2..."`
-6. Push to origin: `git push -u origin HEAD` or `git push --force-with-lease` if already pushed
-7. Create PR: `gh pr create --title "..." --body "..."`
-8. If issue URL provided, add "Closes #[number]" to body
+4. Check commit count with `git log main..HEAD --oneline | wc -l`:
+   - If more than 1 commit: run `/squash` to squash and push
+   - If 1 commit: push with `git push -u origin HEAD` or `git push` if already tracking
+5. Create PR: `gh pr create --title "..." --body "..."`
+6. If issue URL provided, add "Closes #[number]" to body
 
 **PR Guidelines:**
 
