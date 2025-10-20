@@ -1,39 +1,18 @@
 ---
 description: Create a git commit and push to remote
 model: claude-sonnet-4-5-20250929
-allowed-tools: [Bash, Read, Edit]
+argument-hint: '[optional: arguments to pass to /commit command]'
+allowed-tools: [Bash, SlashCommand]
 ---
 
-Stage changes, create a commit (if needed), and push to remote on the current feature branch.
+Create a commit using the /commit command and push to remote.
 
-**Prerequisites:**
+**Arguments:**
 
-- Must be on a feature branch (not main)
+- Optional arguments to pass to /commit (e.g., "don't create a branch")
 
 **Process:**
 
-1. Verify on feature branch using `git branch --show-current`
-2. Review changes with `git status`
-3. If there are changes:
-   - Stage all files with `git add -A`
-   - Create commit with descriptive message
-4. Push to remote with `git push`
-
-**Commit Guidelines:**
-
-- Maximum 5 bullet points for the commit body
-- Keep each point to one line
-- Focus on WHAT changed, not implementation details
-- If no changes to commit, just push existing commits
-
-**Example commit:**
-
-```
-Add error handling to API endpoints
-
-- Add try-catch blocks to all routes
-- Create error response formatter
-- Log errors with request context
-- Return appropriate HTTP status codes
-- Add client-friendly error messages
-```
+1. Check if there are changes with `git status`
+2. If there are changes: Run `/commit $ARGUMENTS` to create a commit
+3. Push to remote: `git push` or `git push -u origin HEAD` if branch not tracking remote
