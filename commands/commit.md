@@ -13,13 +13,13 @@ Stage changes and create a commit on the current feature branch.
 
 **Process:**
 
-1. Check current branch:
+1. Check current branch using `git branch --show-current`:
    - **NEVER commit directly to main unless user explicitly says "don't create a branch" or "commit on main"**
-   - If on main without explicit permission: ALWAYS create feature branch named r38y/[descriptive-name] and switch to it
+   - If on main without explicit permission: `git checkout -b r38y/[descriptive-name]`
    - If user says "don't create a branch": stay on current branch (even if main)
-2. Review changes with `git status` and `git diff`
-3. Stage all files with `git add -A`
-4. Create commit with descriptive message
+2. Review changes: `git status` and `git diff`
+3. Stage all files: `git add -A`
+4. Create commit: `git commit -m "title\n\n- bullet 1\n- bullet 2..."`
 
 **Commit Guidelines:**
 

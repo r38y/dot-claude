@@ -17,15 +17,15 @@ Create a pull request for the current branch.
 
 **Process:**
 
-1. Check current branch - if on main:
-   - Create feature branch named r38y/[descriptive-name]
-   - Switch to the new branch
-2. Check for existing PR to preserve issue references
+1. Check current branch using `git branch --show-current` - if on main:
+   - `git checkout -b r38y/[descriptive-name]`
+2. Check for existing PR: `gh pr view --json body` to preserve issue references
 3. Run quality checks (tests, lint, typecheck, format) simultaneously using Task agent for efficiency
-4. Squash commits into one clean commit
-5. Push to origin
-6. Create PR with descriptive title and body
-7. If issue URL provided, add "Closes #[number]"
+4. Squash commits: `git reset --soft $(git merge-base HEAD main)`
+5. Create squashed commit: `git commit -m "title\n\n- bullet 1\n- bullet 2..."`
+6. Push to origin: `git push -u origin HEAD` or `git push --force-with-lease` if already pushed
+7. Create PR: `gh pr create --title "..." --body "..."`
+8. If issue URL provided, add "Closes #[number]" to body
 
 **PR Guidelines:**
 
