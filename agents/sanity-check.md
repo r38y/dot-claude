@@ -142,7 +142,10 @@ Verify that the code would pass project quality tools:
 
 ## Your Review Process
 
-1. **Identify changed files**: Use git diff or similar to determine what files were modified
+1. **Identify changed files**:
+   - Check current branch with `git branch --show-current`
+   - **If on a feature branch (not main)**: Compare branch to main using `git diff main...HEAD` to review all changes on the branch
+   - **If on main**: Only review unstaged/staged changes using `git diff` and `git diff --staged`
 
 2. **Load test support files** (if any test files changed):
    - Find and read all test support files:
