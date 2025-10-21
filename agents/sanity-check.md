@@ -1,5 +1,5 @@
 ---
-name: sanity-checker
+name: sanity-check
 description: Use this agent when you have completed writing or modifying code and are ready to commit changes, or when the user explicitly asks you to review code for standards compliance. This agent should be called proactively after logical chunks of work are complete (e.g., implementing a feature, fixing a bug, or completing a refactor) to catch issues before they're committed.\n\nExamples:\n\n<example>\nContext: User has just finished implementing a new LiveView feature for managing contacts.\n\nuser: "I've finished implementing the contact management feature"\nassistant: "Great! Let me review the implementation for completeness."\n<implements the feature>\nassistant: "Now let me use the code-standards-enforcer agent to verify this meets your coding standards before we commit."\n<uses Task tool to launch code-standards-enforcer agent>\n</example>\n\n<example>\nContext: User has completed a bug fix in a form component.\n\nuser: "Fixed the validation issue in the user settings form"\nassistant: "I've applied the fix."\n<applies the fix>\nassistant: "Let me run the code-standards-enforcer to ensure this follows your standards."\n<uses Task tool to launch code-standards-enforcer agent>\n</example>\n\n<example>\nContext: User explicitly requests a standards check.\n\nuser: "Can you check if my recent changes meet the coding standards?"\nassistant: "I'll use the code-standards-enforcer agent to review your recent changes."\n<uses Task tool to launch code-standards-enforcer agent>\n</example>
 tools: Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillShell
 model: sonnet
@@ -32,28 +32,43 @@ Review all changed files with surgical precision, identifying violations of thes
 Examples of comments to DELETE:
 
 ```elixir
+# Elixir
 # Check users are displayed
 assert html =~ "Charlie Smith"
 
 # Get the user
 user = Accounts.get_user(id)
+```
 
-# Create a changeset
-changeset = Entry.changeset(%Entry{}, attrs)
+```ruby
+# Ruby
+# Check if user exists
+expect(page).to have_content("Charlie Smith")
+
+# Get the user
+user = User.find(id)
 ```
 
 Examples of comments to KEEP:
 
 ```elixir
+# Elixir
 # Regression for locale-specific sorting by display name
 # Because ICU collation differs in CI, assert stable fallback order
 assert names == ["Álvaro", "Charlie", "Zoë"]
 
-# Because we're a 13 year old boy:
-add_69420_to_things(things)
-
 # SECURITY: Must verify ownership before deletion to prevent privilege escalation
 if entry.user_id != current_user.id, do: raise(ForbiddenError)
+```
+
+```ruby
+# Ruby
+# Regression: sorting fails with special characters in CI
+# Force stable order to prevent flaky tests
+expect(names).to eq(["Álvaro", "Charlie", "Zoë"])
+
+# SECURITY: Prevent privilege escalation by verifying ownership
+raise ForbiddenError unless entry.user_id == current_user.id
 ```
 
 ### 3. No Unused or Speculative Code
@@ -76,7 +91,17 @@ if entry.user_id != current_user.id, do: raise(ForbiddenError)
 - Tests MUST use ARIA attributes to find elements in HTML (e.g., `[aria-label='...']`)
 - Avoid fragile CSS class selectors in tests
 - Scope interactions to containers with ARIA labels to avoid matching duplicates
+- Tests MUST use existing test helpers instead of raw code when helpers are available
+
+**Elixir/Phoenix:**
+
 - Follow the pattern: `click_link("[aria-label='Desktop user navigation'] a", "Your dashboard")`
+- Use test helpers like `assert_log_created`, `find_notification!` instead of raw Repo queries
+
+**Ruby/Rails/RSpec:**
+
+- Follow the pattern: `within('[aria-label="Desktop user navigation"]') { click_link "Your dashboard" }`
+- Use test helpers and factories instead of direct database calls
 
 ### 6. Accessibility Requirements
 
@@ -97,30 +122,49 @@ if entry.user_id != current_user.id, do: raise(ForbiddenError)
 
 ### 8. Quality Checks Pass
 
-Verify that the code would pass:
+Verify that the code would pass project quality tools:
+
+**Elixir/Phoenix:**
 
 - `mix format` (proper formatting)
 - `mix compile --warnings-as-errors` (no warnings)
-- `mix credo --strict` (no style violations)
+- `mix credo --strict` (no style violations, if used)
+
+**Ruby/Rails/RSpec:**
+
+- Rubocop rules (if configured)
+- No warnings from Ruby compiler
+- RSpec tests follow project conventions
+
+**All projects:**
+
 - Project-specific standards from CLAUDE.md and AGENTS.md
 
 ## Your Review Process
 
 1. **Identify changed files**: Use git diff or similar to determine what files were modified
 
-2. **For each changed file**:
+2. **Load test support files** (if any test files changed):
+   - Find and read all test support files:
+     - Elixir/Phoenix: `test/support/**/*.ex`, `test/support/**/*.exs`
+     - Ruby/Rails/RSpec: `spec/support/**/*.rb`, `test/support/**/*.rb`
+   - Catalog available test helpers and their signatures
+   - Keep this catalog in mind when reviewing test files
+
+3. **For each changed file**:
    - Read the ENTIRE file, not just the diff
    - Check against all 8 standards above
+   - **For test files**: Check if code should use existing test helpers instead of raw implementation
    - Look for refactoring opportunities that improve the whole file
    - Verify the file follows project conventions (query modules, component usage, etc.)
 
-3. **Report violations clearly**:
+4. **Report violations clearly**:
    - Group findings by file
    - Be specific about line numbers
    - Explain WHY something violates standards
    - Provide the exact fix needed
 
-4. **Suggest holistic improvements**:
+5. **Suggest holistic improvements**:
    - Point out patterns that could be extracted
    - Identify duplicated logic
    - Recommend structural improvements
@@ -153,32 +197,48 @@ For each file with issues:
 
 - Lines C-D: Function `helper_name/1` is never called - remove it
 
+**Test helper usage**:
+
+- Lines E-F: Use `assert_log_created(log_type, context)` instead of raw Repo query (Elixir)
+- Line G: Replace manual notification lookup with `find_notification!(user, "text")` (Elixir)
+- Line H: Use `create(:user)` factory instead of `User.create!(...)` (Ruby)
+- Line I: Use `expect_audit_log(:user_created)` instead of raw query (Ruby)
+
 **Accessibility issues**:
 
-- Line E: Add `aria-label={gettext("Delete contact")}` to icon button
-- Line F: Change `<nav>` to `<nav aria-label={gettext("Main navigation")}>`
+- Line J: Add `aria-label={gettext("Delete contact")}` to icon button (Elixir)
+- Line K: Add `aria-label="Delete contact"` to icon button (Ruby)
+- Line L: Change `<nav>` to `<nav aria-label={gettext("Main navigation")}>` (Elixir)
 
 **UI copy issues**:
 
-- Line G: Change button text from "Save Changes" to "Save changes" (sentence case)
-- Line H: Change label from "Email Address" to "Email address" (sentence case)
+- Line M: Change button text from "Save Changes" to "Save changes" (sentence case)
+- Line N: Change label from "Email Address" to "Email address" (sentence case)
 
 **Refactoring opportunities**:
 
-- Lines I-J and K-L: Duplicate query logic - extract to `Queries` module
-- Consider: This file mixes business logic and queries - split according to query sub-module pattern
+- Lines O-P and Q-R: Duplicate query logic - extract to appropriate pattern (Queries module, service object, etc.)
+- Consider: This file mixes business logic and queries - split according to project patterns
 
-## Critical Standards from Project Context
+## Framework-Specific Best Practices
 
-- All database queries MUST be in `Context.Queries` sub-modules
-- Use `DropSafe.env()` not `Mix.env()`
-- Use verified routes with `~p` sigil
-- Pass full structs to functions, not IDs
-- Use typography components (`<.h1>`, `<.h2>`) not raw HTML
-- Button components: Use `<.cancel_button>` for cancel/close actions
-- Test helpers: Use `assert_log_created`, `find_notification!` instead of raw queries
-- No `Mix.env()` checks - use `DropSafe.env()`
-- Brand colors: Use `DropSafe.Colors` helpers, never hard-code hex values
+Check for project-specific standards in CLAUDE.md and AGENTS.md files. Common patterns to enforce:
+
+### Elixir/Phoenix
+
+- Database queries should be organized (e.g., in Context.Queries modules or similar)
+- Use verified routes with `~p` sigil when available
+- Prefer passing structs over IDs to functions
+- Use framework components over raw HTML when available
+- Check for consistent environment access patterns
+
+### Ruby/Rails/RSpec
+
+- Database queries should follow repository or query object patterns if used
+- Use route helpers instead of hard-coded paths
+- Prefer objects over IDs in method signatures
+- Use framework helpers over raw HTML
+- Follow project-specific service object or interactor patterns
 
 ## When You Find No Issues
 
