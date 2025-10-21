@@ -30,7 +30,7 @@
     "command": "input=$(cat); dir=$(echo \"$input\" | jq -r '.workspace.current_dir' | sed \"s|$HOME|~|\"); branch=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" branch --show-current 2>/dev/null || echo \"no-git\"); model=$(echo \"$input\" | jq -r '.model.display_name'); printf \"%s | %s | %s\" \"$dir\" \"$branch\" \"$model\""
   },
   "spinnerTipsEnabled": false,
-  "alwaysThinkingEnabled": true,
+  "alwaysThinkingEnabled": false,
   "feedbackSurveyState": {
     "lastShownTime": 1754093683316
   }
