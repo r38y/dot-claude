@@ -19,7 +19,7 @@ Squash commits on the current feature branch into organized commits.
 **Process:**
 
 1. Verify on feature branch using `git branch --show-current`
-2. Fetch latest main: `git fetch origin main:main`
+2. Fetch latest main: `git fetch origin main`
 3. Review all commits: `git log main..HEAD --oneline`
 4. Reset to main: `git reset --soft main`
 5. Run `/commit` to create squashed commit(s) based on $ARGUMENTS
