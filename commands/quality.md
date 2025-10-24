@@ -1,6 +1,6 @@
 ---
 description: Run quality checks for the current project
-model: claude-opus-4-1-20250805
+model: claude-sonnet-4-5-20250929
 argument-hint: "[optional: 'entire codebase' to check all files]"
 allowed-tools: [Bash, Read, Task, Grep, Glob]
 ---
