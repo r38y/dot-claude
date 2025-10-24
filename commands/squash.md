@@ -38,3 +38,27 @@ Squash commits on the current feature branch into organized commits.
 - Focus on WHAT changed, not HOW
 - Never include test plans
 - Be concise and high-level
+
+**Example GOOD PR body:**
+
+```
+- Add user authentication with JWT tokens
+- Implement login/logout endpoints
+- Add auth middleware for protected routes
+- Create login UI components
+- Update user model for token storage
+
+Closes #123
+```
+
+**Example BAD PR body:**
+
+```
+## Summary
+
+- First added some column
+- Then reverted adding some column
+- Resulting in no net change with that column
+
+Some AI credit line
+```
