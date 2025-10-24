@@ -24,3 +24,17 @@ Squash commits on the current feature branch into organized commits.
 4. Reset to main: `git reset --soft main`
 5. Run `/commit` to create squashed commit(s) based on $ARGUMENTS
 6. Force push: `git push --force-with-lease`
+7. Check if PR exists: `gh pr view --json url,body`
+8. If PR exists:
+   - Analyze changes: `git log main..HEAD` and `git diff main...HEAD`
+   - Generate new title and body following PR guidelines (max 5 bullets, one-line each, focus on WHAT changed)
+   - Preserve any existing "Closes #[number]" references from old body
+   - Update PR: `gh pr edit --title "..." --body "..."`
+
+**PR Guidelines:**
+
+- Maximum 5 bullet points in the summary
+- Each bullet should be one line
+- Focus on WHAT changed, not HOW
+- Never include test plans
+- Be concise and high-level
