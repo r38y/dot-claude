@@ -19,7 +19,9 @@ Create a pull request for the current branch.
 
 1. Check current branch using `git branch --show-current` - if on main:
    - `git checkout -b r38y/[descriptive-name]`
-2. Check for existing PR: `gh pr view --json body 2>/dev/null` to preserve issue references (suppress error if no PR exists)
+2. Check for existing PR: `gh pr view --json state,body 2>/dev/null` to preserve issue references (suppress error if no PR exists)
+   - Only update if state is "OPEN" or "DRAFT"
+   - If state is "MERGED" or "CLOSED", create a new PR instead
 3. Run quality checks (tests, lint, typecheck, format) simultaneously using Task agent for efficiency
 4. Check commit count with `git log main..HEAD --oneline | wc -l`:
    - If more than 1 commit: run `/squash` to squash and push
